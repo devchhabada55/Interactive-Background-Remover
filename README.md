@@ -207,7 +207,7 @@ The image background removal tool uses an AI-powered algorithm to detect the for
 **Output:**
 - After background removal, the image of the car will look like this:
 
-![Car Output](./processed_image (6).png)
+![Car Output](./processed_image (6).png) 
 
 ---
 
