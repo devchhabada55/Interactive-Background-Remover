@@ -153,7 +153,7 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - After processing, the background around the sofa will be removed. Here’s an example of what the processed image would look like:
 
-  ![Sofa Output]() <img src="sofa-boundingbox.png" width="300" />
+  <img src="sofa-boundingbox.png" width="500" />
 
 
 ---
@@ -173,7 +173,8 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - After processing, the jacket will be retained, and the background will be removed. Here’s the processed image:
 
-  ![Jacket Output](./jacket.png)
+  <img src="jacket.png." width="500" />
+
 
 ---
 
@@ -192,7 +193,7 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - The oil bottle will be separated from the background. The processed result is shown below:
 
-  ![Oil Bottle Output](./oil-bottle.png)
+<img src="oil-bottle.png" width="500" />
 
 ---
 
@@ -211,7 +212,8 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - After background removal, the image of the car will look like this:
 
-  ![Car Output](./processed_image%20(6).png)
+ <img src="processed_image (6).png" width="500" />
+
 
 ---
 
