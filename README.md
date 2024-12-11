@@ -1,5 +1,5 @@
 
-# Interactive Image Background Removal
+# Interactive Image Background Removal - by Team Victory
 
 Hi,  
 This project provides an interactive web-based tool that allows users to remove the background of an image using a bounding box selection. The web application consists of a frontend interface to upload an image and draw a bounding box, and a backend that processes the image, removes the background, and returns the processed image for download.  
