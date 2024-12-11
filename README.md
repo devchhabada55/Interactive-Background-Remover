@@ -127,7 +127,7 @@ The response would return a JSON with the base64-encoded image or a URL to downl
 
 Here’s a screenshot showing the interactive background removal in action. This demonstrates how users can upload an image, draw a bounding box, and remove the background.
 
-![Screenshot](./Screenshot (1).png) 
+![Screenshot](./Screenshot%20(1).png) 
 
 ### Theoretical Overview
 The image background removal tool uses an AI-powered algorithm to detect the foreground object and remove the background seamlessly. The bounding box allows users to define the area for processing, ensuring more accurate results.
@@ -135,7 +135,7 @@ The image background removal tool uses an AI-powered algorithm to detect the for
 
 
 ## License
-
+Major Contributor : Dev Chhabada
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
@@ -147,3 +147,4 @@ Feel free to fork this project and submit pull requests! If you'd like to contri
 3. Commit your changes (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new pull request.
+
