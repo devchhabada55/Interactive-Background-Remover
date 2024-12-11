@@ -133,6 +133,90 @@ Here’s a screenshot showing the interactive background removal in action. This
 The image background removal tool uses an AI-powered algorithm to detect the foreground object and remove the background seamlessly. The bounding box allows users to define the area for processing, ensuring more accurate results.
 
 
+## Example Usage
+
+### Example 1: Sofa
+
+**Input:**
+- **Image URL**:  
+  The input image of a sofa is provided via the link below. You can use a bounding box to select the area of the sofa to keep and remove the background.
+
+  ```plaintext
+  https://plus.unsplash.com/premium_photo-1681449856688-2abd99ab5a73?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  ```
+
+- **Bounding Box**: Draw a bounding box around the sofa in the image. This is the area that will be kept after background removal.
+
+**Output:**
+- After processing, the background around the sofa will be removed, and the result will be displayed. Here's an example of what the processed image would look like:
+
+![Sofa Output](./sofa_output.png)
+
+---
+
+### Example 2: Jacket
+
+**Input:**
+- **Image URL**:  
+  The input image of a jacket is provided via the link below. You can use a bounding box to select the jacket and remove the background.
+
+  ```plaintext
+  https://plus.unsplash.com/premium_photo-1675186049563-000f7ac02c44?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  ```
+
+- **Bounding Box**: Draw a bounding box around the jacket to specify the region that will remain.
+
+**Output:**
+- After processing, the jacket will be retained, and the background will be removed. Here’s the processed image:
+
+![Jacket Output](./jacket_output.png)
+
+---
+
+### Example 3: Oil Bottle
+
+**Input:**
+- **Image URL**:  
+  The input image of an oil bottle is provided via the link below.
+
+  ```plaintext
+  https://images.unsplash.com/photo-1549049950-48d5887197a0?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  ```
+
+- **Bounding Box**: Use the bounding box to select the oil bottle for background removal.
+
+**Output:**
+- The oil bottle will be separated from the background. The processed result is shown below:
+
+![Oil Bottle Output](./oil_bottle_output.png)
+
+---
+
+### Example 4: Car
+
+**Input:**
+- **Image URL**:  
+  The input image of a car is provided via the link below.
+
+  ```plaintext
+  https://images.unsplash.com/photo-1469285994282-454ceb49e63c?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  ```
+
+- **Bounding Box**: Draw the bounding box to select the car and remove the background.
+
+**Output:**
+- After background removal, the image of the car will look like this:
+
+![Car Output](./car_output.png)
+
+---
+
+### Notes:
+- In each of the examples above, the **Input** is an image URL, and the **Bounding Box** is used to specify the area that should be retained after the background is removed.
+- The **Output** is displayed after processing and shows the image with the background removed, which is stored as an image file within the same repository (i.e., `sofa_output.png`, `jacket_output.png`, etc.).
+
+
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
