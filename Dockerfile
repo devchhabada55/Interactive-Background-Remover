@@ -1,27 +1,27 @@
-# Use the official Python 3.10 image as the base
-FROM python:3.10-slim
+# Use a lightweight Python image
+FROM python:3.9-slim
 
-# Set environment variables to prevent Python from buffering logs
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Set working directory
+WORKDIR /OnlineSalesAI
 
-# Set the working directory in the container
-WORKDIR /app
+# Copy application files to the correct directory
+COPY . /OnlineSalesAI
 
-# Copy the requirements file to the container
-COPY requirements.txt /app/requirements.txt
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN apt-get update && \
-    apt-get install -y gcc libgl1-mesa-glx && \
-    pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Upgrade pip and install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code to the container
-COPY . /app
-
-# Expose the application port
+# Expose the port Flask runs on
 EXPOSE 8080
 
-# Set the entry point to run the Flask app
+# Define environment variables
+ENV OUTPUT_DIR="/OnlineSalesAI/static"
+
+# Command to run the app
 CMD ["python", "app.py"]

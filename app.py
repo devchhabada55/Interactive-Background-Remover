@@ -2,7 +2,8 @@ import os
 import io
 import logging
 import requests
-from flask import Flask, request, jsonify, send_file, render_template
+import base64
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 from rembg import remove
 from PIL import Image
@@ -36,7 +37,11 @@ def crop_image(image_data, bounding_box=None):
         image = Image.open(image_data)
 
         if not bounding_box:
-            return image_data
+            # Return raw image bytes if no cropping is needed
+            cropped_bytes = io.BytesIO()
+            image.save(cropped_bytes, format="PNG")
+            cropped_bytes.seek(0)
+            return cropped_bytes
 
         x_min = bounding_box.get("x_min", 0)
         y_min = bounding_box.get("y_min", 0)
@@ -53,7 +58,7 @@ def crop_image(image_data, bounding_box=None):
 
 @app.route("/")
 def home():
-    return render_template("homepage.html")  # Ensure this matches your HTML template
+    return render_template("Homepage.html")  # Ensure this matches your HTML template
 
 @app.route("/remove-background", methods=["POST"])
 def remove_background_from_image():
@@ -76,16 +81,21 @@ def remove_background_from_image():
         cropped_image_data = crop_image(image_data, bounding_box)
 
         # Remove the background
-        processed_image_data = remove(cropped_image_data.getvalue())
+        cropped_image_data.seek(0)  # Ensure the pointer is at the start
+        processed_image_data = remove(cropped_image_data.read())
 
-        # Save the processed image
-        output_filename = "processed_image.png"
-        output_path = os.path.join(OUTPUT_DIR, output_filename)
-        with open(output_path, "wb") as f:
+        # Save the processed image to the server
+        processed_image_path = os.path.join(OUTPUT_DIR, "processed_image.png")
+        with open(processed_image_path, "wb") as f:
             f.write(processed_image_data)
 
+        # Encode the processed image to Base64 for display
+        encoded_image_data = base64.b64encode(processed_image_data).decode('utf-8')
+
+        # Return the Base64-encoded image and download link in the JSON response
         return jsonify({
-            "processed_image_url": f"/download/{output_filename}"
+            "processed_image_base64": encoded_image_data,
+            "download_link": f"/download/processed_image.png"
         })
 
     except Exception as e:
@@ -94,14 +104,10 @@ def remove_background_from_image():
 
 @app.route("/download/<filename>")
 def download_file(filename):
-    """Download the processed image"""
+    """Endpoint to download the processed image"""
     try:
-        file_path = os.path.join(OUTPUT_DIR, filename)
-        if not os.path.exists(file_path):
-            return jsonify({"error": "File not found"}), 404
-        return send_file(file_path, mimetype="image/png")
+        return send_from_directory(OUTPUT_DIR, filename, as_attachment=True)
     except Exception as e:
-        logging.error(f"Error in /download/{filename}: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 @app.before_request
@@ -110,4 +116,4 @@ def log_request_info():
     logging.info('Body: %s', request.get_data())
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), debug=True)

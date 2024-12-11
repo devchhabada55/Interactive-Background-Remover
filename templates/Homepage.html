@@ -231,8 +231,11 @@
                 if (data.error) {
                     document.getElementById('result').innerHTML = `<p class="error">Error: ${data.error}</p>`;
                 } else {
-                    document.getElementById('result').innerHTML = `Processed Image:<br>
-                        <a href="${data.processed_image_url}" download="processed_image.png">Download Processed Image</a>`;
+                    document.getElementById('result').innerHTML = `
+                        Processed Image:<br>
+                        <img src="data:image/png;base64,${data.processed_image_base64}" alt="Processed Image" /><br>
+                        <a href="${data.download_link}" download>Download Processed Image</a>
+                    `;
                 }
             } catch (error) {
                 document.getElementById('result').innerHTML = `<p class="error">Error: ${error.message}</p>`;
