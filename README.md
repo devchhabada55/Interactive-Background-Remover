@@ -127,7 +127,7 @@ The response would return a JSON with the base64-encoded image or a URL to downl
 
 Here’s a screenshot showing the interactive background removal in action. This demonstrates how users can upload an image, draw a bounding box, and remove the background.
 
-![Screenshot](./screenshot.png) 
+![Screenshot](./Screenshot (1).png) 
 
 ### Theoretical Overview
 The image background removal tool uses an AI-powered algorithm to detect the foreground object and remove the background seamlessly. The bounding box allows users to define the area for processing, ensuring more accurate results.
