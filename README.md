@@ -173,7 +173,7 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - After processing, the jacket will be retained, and the background will be removed. Here’s the processed image:
 
-  <img src="./jacket.png" width="500" />
+  <img src="./jacket.png" width="300" />
 
 
 ---
