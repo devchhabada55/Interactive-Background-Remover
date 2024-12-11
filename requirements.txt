@@ -1,7 +1,5 @@
 gunicorn
 flask
-google-cloud-vision
-google-cloud-storage
 rembg
 requests
 pillow
