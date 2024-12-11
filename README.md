@@ -11,6 +11,7 @@ Website: [Interactive Image Background Removal](https://flask-app-400049391293.a
 
 - **Image URL Upload**: Input an image URL to load the image.
 - **Bounding Box Selection**: Draw a bounding box over the area of the image to retain.
+- **Manual Co-ordinates**: Also you can enter the manual co-ordinates i.e Xmin,Xmax,Ymin,Ymax. 
 - **Background Removal**: Process the image and remove the background using AI-based algorithms.
 - **Object Detection with Google Vision**: Detect objects in the selected bounding box (will update soon on the website).
 - **Download Processed Image**: Get the processed image with a transparent background and download it.
