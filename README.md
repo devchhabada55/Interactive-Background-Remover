@@ -150,7 +150,7 @@ The image background removal tool uses an AI-powered algorithm to detect the for
 **Output:**
 - After processing, the background around the sofa will be removed, and the result will be displayed. Here's an example of what the processed image would look like:
 
-![Sofa Output](./sofa_output.png)
+![Sofa Output](./sofa-boundingbox.png)
 
 ---
 
@@ -169,7 +169,7 @@ The image background removal tool uses an AI-powered algorithm to detect the for
 **Output:**
 - After processing, the jacket will be retained, and the background will be removed. Here’s the processed image:
 
-![Jacket Output](./jacket_output.png)
+![Jacket Output](./jacket.png)
 
 ---
 
@@ -188,7 +188,7 @@ The image background removal tool uses an AI-powered algorithm to detect the for
 **Output:**
 - The oil bottle will be separated from the background. The processed result is shown below:
 
-![Oil Bottle Output](./oil_bottle_output.png)
+![Oil Bottle Output](./oil_bottle.png)
 
 ---
 
