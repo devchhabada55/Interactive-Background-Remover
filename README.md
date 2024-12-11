@@ -63,7 +63,7 @@ Website: [Interactive Image Background Removal](https://flask-app-400049391293.a
 1. **Load Image**: Input a public image URL into the frontend form to load the image.
 2. **Draw Bounding Box**: Use the frontend canvas to draw a bounding box around the area of the image that should remain.
 3. **Background Removal**: Once the bounding box is drawn, the backend processes the image, removes the background using the rembg AI model, and generates a transparent background.
-4. **Object Detection** (coming soon): The system will use Google Vision API to detect objects within the bounding box, enhancing background removal accuracy.
+4. **Object Detection**: The system will use Google Vision API to detect objects within the bounding box, enhancing background removal accuracy.
 5. **Download Processed Image**: The processed image with the removed background is returned, and the user can download the result.
 
 ### Example Request
@@ -88,6 +88,7 @@ The response would return a JSON with the base64-encoded image or a URL to downl
 
 ```json
 {
+  "original_image_url": "<original_image_url>",
   "processed_image_url": "http://example.com/processed_image.png"
 }
 ```
@@ -119,8 +120,19 @@ The response would return a JSON with the base64-encoded image or a URL to downl
 - **Description**: Allows the user to download the processed image after background removal.
 
 ### `/object-detection`
-- **Method**: `GET` (Coming soon)
+- **Method**: `GET`
 - **Description**: This endpoint will return detected objects within the bounding box selected by the user, using the Google Vision API.
+
+## Screenshot of the Application
+
+Here’s a screenshot showing the interactive background removal in action. This demonstrates how users can upload an image, draw a bounding box, and remove the background.
+
+![Screenshot](./screenshot.png) 
+
+### Theoretical Overview
+The image background removal tool uses an AI-powered algorithm to detect the foreground object and remove the background seamlessly. The bounding box allows users to define the area for processing, ensuring more accurate results.
+
+
 
 ## License
 
