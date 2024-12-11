@@ -30,7 +30,7 @@ Website: [Interactive Image Background Removal](https://flask-app-400049391293.a
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Python (Flask)
 - **Background Removal**: [rembg](https://github.com/danielgatis/rembg)
-- **Google Vision API**: For object detection within the bounding box (coming soon).
+- **Google Vision API**: For object detection within the bounding box.
 - **AI Algorithms**: Used for removing image backgrounds.
 - **Image Processing**: Pillow for image manipulation.
 
