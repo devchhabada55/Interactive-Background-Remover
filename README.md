@@ -153,8 +153,8 @@ Below are examples of how to use the provided images and how the processed outpu
 **Output:**
 - After processing, the background around the sofa will be removed. Here’s an example of what the processed image would look like:
 
-  ![Sofa Output](./sofa-boundingbox.png) 
-<img src="sofa-boundingbox.png" width="300" />
+  ![Sofa Output](<img src="sofa-boundingbox.png" width="300" />) 
+
 
 ---
 
