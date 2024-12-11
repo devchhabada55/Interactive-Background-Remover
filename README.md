@@ -11,7 +11,7 @@ Website: [Interactive Image Background Removal](https://flask-app-400049391293.a
 
 - **Image URL Upload**: Input an image URL to load the image.
 - **Bounding Box Selection**: Draw a bounding box over the area of the image to retain.
-- **Manual Co-ordinates**: Also you can enter the manual co-ordinates i.e Xmin,Xmax,Ymin,Ymax. 
+- **Manual Co-ordinates**: Also you can enter the manual co-ordinates i.e X_min,X_max,Y_min,Y_max. 
 - **Background Removal**: Process the image and remove the background using AI-based algorithms.
 - **Object Detection with Google Vision**: Detect objects in the selected bounding box (will update soon on the website).
 - **Download Processed Image**: Get the processed image with a transparent background and download it.
@@ -133,12 +133,12 @@ Here’s a screenshot showing the interactive background removal in action. This
 The image background removal tool uses an AI-powered algorithm to detect the foreground object and remove the background seamlessly. The bounding box allows users to define the area for processing, ensuring more accurate results.
 
 
-
 ## License
-Major Contributor : Dev Chhabada
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
+Major Contributor : Dev Chhabada
+
 
 Feel free to fork this project and submit pull requests! If you'd like to contribute, please follow these steps:
 
