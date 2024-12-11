@@ -1,16 +1,19 @@
-# Interactive Image Background Removal
-Hi, 
-This project provides an interactive web-based tool that allows users to remove the background of an image using a bounding box selection. The web application consists of a frontend interface to upload an image and draw a bounding box, and a backend that processes the image, removes the background, and returns the processed image for download.
-Additionally, the project integrates Google Vision for object detection within the bounding box. This functionality can help improve the accuracy of background removal by identifying objects, although it has not yet been deployed. Will be deployed soon in next Update! 😊
 
-Website : [Link](https://flask-app-400049391293.asia-south1.run.app)
+# Interactive Image Background Removal
+
+Hi,  
+This project provides an interactive web-based tool that allows users to remove the background of an image using a bounding box selection. The web application consists of a frontend interface to upload an image and draw a bounding box, and a backend that processes the image, removes the background, and returns the processed image for download.  
+Additionally, the project integrates Google Vision for object detection within the bounding box. This functionality can help improve the accuracy of background removal by identifying objects, although it has not yet been deployed. It will be deployed soon in the next update! 😊
+
+Website: [Interactive Image Background Removal](https://flask-app-400049391293.asia-south1.run.app)
 
 ## Features
-   - Image URL Upload: Input an image URL to load the image.
-   - Bounding Box Selection: Draw a bounding box over the area of the image to retain.
-   - Background Removal: Process the image and remove the background using AI-based algorithms.
-   - Object Detection with Google Vision: Detect objects in the selected bounding box.(will Update soon on website).
-   - Download Processed Image: Get the processed image with a transparent background and download it.
+
+- **Image URL Upload**: Input an image URL to load the image.
+- **Bounding Box Selection**: Draw a bounding box over the area of the image to retain.
+- **Background Removal**: Process the image and remove the background using AI-based algorithms.
+- **Object Detection with Google Vision**: Detect objects in the selected bounding box (will update soon on the website).
+- **Download Processed Image**: Get the processed image with a transparent background and download it.
 
 ## Table of Contents
 
@@ -21,33 +24,47 @@ Website : [Link](https://flask-app-400049391293.asia-south1.run.app)
 5. [Endpoints](#endpoints)
 6. [License](#license)
 
+## Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Python (Flask)
+- **Background Removal**: [rembg](https://github.com/danielgatis/rembg)
+- **Google Vision API**: For object detection within the bounding box (coming soon).
+- **AI Algorithms**: Used for removing image backgrounds.
+- **Image Processing**: Pillow for image manipulation.
+
 ## Setup
 
 ### Frontend
 
-1. Clone or download the project files.
+1. Clone or download the project files from the repository.
 2. Open the `Homepage.html` file in a browser to run the frontend application.
 
 ### Backend
 
 1. Install the required dependencies:
-
+   
    ```bash
    pip install Flask rembg Pillow requests flask-cors google-cloud-vision
+   ```
 
-   Save the Python backend code in a file, such as app.py.
-
-2. Save the Python backend code in a file, such as app.py.
+2. Save the Python backend code in a file, such as `app.py`.
 3. Run the Flask app:
-        python app.py
-4. The app will be available at http://localhost:8080.
-5. 
-### 5. **Examples of Usage**
-Demonstrating how your project works through examples helps users quickly grasp how to use it. You can add sample requests, command-line examples, or images to demonstrate the process.
 
-For instance, you could include:
+   ```bash
+   python app.py
+   ```
 
-```markdown
+4. The app will be available at [http://localhost:8080](http://localhost:8080).
+
+## How It Works
+
+1. **Load Image**: Input a public image URL into the frontend form to load the image.
+2. **Draw Bounding Box**: Use the frontend canvas to draw a bounding box around the area of the image that should remain.
+3. **Background Removal**: Once the bounding box is drawn, the backend processes the image, removes the background using the rembg AI model, and generates a transparent background.
+4. **Object Detection** (coming soon): The system will use Google Vision API to detect objects within the bounding box, enhancing background removal accuracy.
+5. **Download Processed Image**: The processed image with the removed background is returned, and the user can download the result.
+
 ### Example Request
 
 Here’s an example of how to make a request to the `/remove-background` endpoint:
@@ -62,22 +79,58 @@ Here’s an example of how to make a request to the `/remove-background` endpoin
     "y_max": 400
   }
 }
+```
 
-### 6. **Explain How the Application Works**
-This section explains the steps and flow of the application, from input to output. A breakdown helps users understand how the backend processes requests, or how the frontend interacts with the server.
+### Example Response:
 
-```markdown
-## How It Works
+The response would return a JSON with the base64-encoded image or a URL to download the processed image. For example:
 
-1. **Load Image**: Enter a public image URL to load the image onto the canvas.
-2. **Draw Bounding Box**: Click and drag to select the area of the image to retain.
-3. **Remove Background**: Click the submit button to remove the background.
-4. **Download Processed Image**: The processed image is returned with a transparent background, and a download link is provided.
+```json
+{
+  "processed_image_url": "http://example.com/processed_image.png"
+}
+```
 
-### Object Detection (Coming Soon)
+## Endpoints
 
-- Object detection via Google Vision is integrated in the backend but not yet deployed.
+### `/remove-background`
+- **Method**: `POST`
+- **Description**: Accepts an image URL and optional bounding box coordinates to remove the background from the specified area of the image.
+- **Request Body**: JSON containing the image URL and bounding box coordinates.
+- **Response**: The processed image with the background removed.
 
+#### Example:
 
+```json
+{
+  "image_url": "https://example.com/image.jpg",
+  "bounding_box": {
+    "x_min": 50,
+    "y_min": 100,
+    "x_max": 300,
+    "y_max": 400
+  }
+}
+```
 
+### `/download/<filename>`
+- **Method**: `GET`
+- **Description**: Allows the user to download the processed image after background removal.
 
+### `/object-detection`
+- **Method**: `GET` (Coming soon)
+- **Description**: This endpoint will return detected objects within the bounding box selected by the user, using the Google Vision API.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Feel free to fork this project and submit pull requests! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new pull request.
